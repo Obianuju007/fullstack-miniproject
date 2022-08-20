@@ -8,14 +8,20 @@ from .forms import *
 
 
 class Signup(forms.ModelForm):
-    gender = (('M', 'Male'), ('F', 'Female'))
-    gender_select = forms.ChoiceField(widget = forms.RadioSelect, choices=gender)
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'', 'required':True}),label='Password', max_length=20)
     confirm_password = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'', 'required':True}), label='Confirm Password', max_length=20)
 
     class Meta:
-        model = CustomUser()
-        fields = ['__all__']
+        model = CustomUser
+        fields = ['full_name', 'email', 'nickname', 'gender']
+        gender_select = (('M', 'Male'), ('F', 'Female'))
+        
+        widgets = {
+            'nickname': forms.TextInput(attrs={'class':'form-control','placeholder':'Amii', 'required':True}),
+            'full_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Timothy Chima Ahmad', 'required':True}),
+            'email': forms.EmailInput(attrs={'class':'form-control','placeholder':'example@gmail.com', 'required':True}), 
+            'gender': forms.RadioSelect(choices=gender_select, attrs={'class':'form-control'}),
+        }
 
         def check_passwords(self):
             # Checking that the two password entries match
@@ -33,14 +39,17 @@ class Signup(forms.ModelForm):
             return user
     
     
-class login(forms.Form):
-    model = login()
-    fields = ['__a__']
-    email = forms.EmailField(widget = forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email', 'required':True}), label='Email', max_length=50)
-    password = forms.CharField(widget = forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password', 'required':True}), label='Password', max_length=50)
+class newLogin(forms.ModelForm):
+    class Meta:
+        model = Login
+        fields = ['email', 'password']
+        widgets = {
+            'email': forms.EmailInput(attrs={'class':'form-control','placeholder':'example@gmail.com', 'required':True}),
+            'password': forms.PasswordInput(attrs={'class':'form-control','placeholder':'example@gmail.com', 'required':True})
+        }
+    
 
-
-class Create_Event_class(forms.Form):
+class Create_Event_class(forms.ModelForm):
     model = Create_Event
     fields = '__a__'
     event_names = [('business', 'Business Meeting'),
