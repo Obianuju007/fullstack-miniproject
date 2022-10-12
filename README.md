@@ -4,4 +4,5 @@ The links will be shown via buttons. So in case you see buttons, just know it co
 
 So I joined Zuri and I4G training cohort 1 for 2022 and below were links to the several tasks I was made to work on.
 > ## From Repl
-* An [About Me](https://About-me.obianuju007.repl.co)
+* An [About Me](https://About-me.obianuju007.repl.co) page
+
