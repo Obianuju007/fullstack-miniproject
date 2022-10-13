@@ -72,6 +72,10 @@ class Login(models.Model):
     email = models.CharField(max_length=50, blank=False)
     password = models.CharField(max_length=50, blank=False)
     
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='invite/profile_media')
+    
 class Create_Event(models.Model):
     nature_of_event = models.CharField(max_length=100, blank=False)
     title_of_event = models.CharField(max_length=100, blank=False)
