@@ -11,4 +11,7 @@ So I joined Zuri and I4G training cohort 1 for 2022 and below were links to the 
 * A [Tables and List](https://codepen.io/Yhujay/full/poaWMQM)
 * An [About me](https://codepen.io/Yhujay/full/wvygZgM)
 
+> ## My Personal Project is this invite app as you will see.
+It's basically an app where one can invite people for events privately. The goal is to produce a QR code which can only be shared after creating an event. When your viewers get the code they can scan it for details of the event. The qr code will contain the name, address, host and time of the event. 
+
 
